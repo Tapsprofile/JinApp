@@ -8,7 +8,6 @@ function App() {
   const [selectedBot, setSelectedBot] = useState<BotConfig | null>(null);
   const [apiKey, setApiKey] = useState('');
   const [isConfigured, setIsConfigured] = useState(false);
-  const [showApiInput, setShowApiInput] = useState(true);
 
   useEffect(() => {
     // Check if API key is already saved in localStorage
@@ -17,7 +16,6 @@ function App() {
       setApiKey(savedApiKey);
       initializeGemini(savedApiKey);
       setIsConfigured(true);
-      setShowApiInput(false);
     }
   }, []);
 
@@ -26,7 +24,6 @@ function App() {
       localStorage.setItem('gemini_api_key', apiKey.trim());
       initializeGemini(apiKey.trim());
       setIsConfigured(true);
-      setShowApiInput(false);
     }
   };
 
@@ -34,7 +31,6 @@ function App() {
     localStorage.removeItem('gemini_api_key');
     setApiKey('');
     setIsConfigured(false);
-    setShowApiInput(true);
     setSelectedBot(null);
   };
 

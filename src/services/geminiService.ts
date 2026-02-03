@@ -15,7 +15,7 @@ export const getGeminiModel = (
   }
 
   const tools = enableSearch
-    ? [{ googleSearch: {} }]
+    ? [{ googleSearchRetrieval: {} }]
     : undefined;
 
   return genAI.getGenerativeModel({
